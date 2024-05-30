@@ -24,6 +24,7 @@ env:
 
 jobs:
   build_and_deploy:
+    
     environment:
       name: ${{ github.event.inputs.branch || github.ref_name }}
     runs-on: ubuntu-latest
@@ -49,7 +50,7 @@ jobs:
         if: matrix.branch == 'main'
         run: echo "Loaded environment variables for main"
         env:
-          NEXT_PUBLIC_FIREBASE_ADMIN_PROJECTID: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MISSION_GO_JAPAN_MAIN_PROJECTID }}
+          NEXT_PUBLIC_FIREBASE_ADMIN_PROJECTID: ${{ secrets.NEXT_PUBLIC_FIREBASE_ADMIN_PROJECTID }}
           NEXT_PUBLIC_FIREBASE_ADMIN_CLIENTEMAIL: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MISSION_GO_JAPAN_MAIN_CLIENTEMAIL }}
           NEXT_PUBLIC_FIREBASE_ADMIN_PRIVATEKEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_MISSION_GO_JAPAN_MAIN_PRIVATEKEY }}
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY_MISSION_GO_JAPAN_MAIN }}
